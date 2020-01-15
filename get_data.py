@@ -111,6 +111,7 @@ def get_and_unzip(url: str, location: str="."):
     """
     dataset = wget.download(url)
     dataset = zipfile.ZipFile(dataset)
+    dataset.close()
     dataset.extractall(location)
     os.remove(dataset.filename)
     dataset.close()
